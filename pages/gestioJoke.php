@@ -1,5 +1,5 @@
 <?php
-$url = "https://api101.up.railway.app/jokes";  
+$url = "https://api101.up.railway.app/joke";  
 
 // Realizamos la solicitud GET para obtener los datos
 $response = file_get_contents($url);
@@ -7,31 +7,30 @@ $response = file_get_contents($url);
 // Decodificamos la respuesta JSON
 $data = json_decode($response, true);
 
-if ($data && is_array($data)) {
-    echo "<h2>Gestión de Chistes</h2>";
+// Comprobamos si los datos existen
+if ($data) {
+    echo "<h2>BROMA DEL DIA</h2>";
     echo "<table border='1'>";
-    echo "<tr><th>ID</th><th>Título</th><th>Precio</th><th>Acciones</th></tr>";
+    echo "<tr><th>ID</th><th>Autor</th><th>Chiste</th><th>Fuente</th><th>Acciones</th></tr>";
 
-    // Recorremos todos los chistes
-    foreach ($data as $joke) {
-        // Mostramos el ID, el título y el precio de cada chiste
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($joke['id']) . "</td>";  
-        echo "<td>" . htmlspecialchars($joke['title']) . "</td>";  
-        echo "<td>" . htmlspecialchars($joke['price']) . "</td>";  
+    // Mostramos los datos del único chiste
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($data['id']) . "</td>";  
+    echo "<td>" . htmlspecialchars($data['author']) . "</td>";  
+    echo "<td>" . htmlspecialchars($data['joke']) . "</td>";  
+    echo "<td>" . htmlspecialchars($data['source']) . "</td>";  
 
-        echo "<td>
-                <a href='editJoke.php?id=" . htmlspecialchars($joke['id']) . "'>Editar</a> |
-                <a href='deleteJoke.php?id=" . htmlspecialchars($joke['id']) . "'>Eliminar</a> |
-                <a href='updateJoke.php?id=" . htmlspecialchars($joke['id']) . "'>Actualizar</a> |
-                <a href='viewJoke.php?id=" . htmlspecialchars($joke['id']) . "'>Ver</a>
-              </td>";
+    // Puedes ajustar estos enlaces si quieres que hagan algo con el ID
+    echo "<td>
+            <a href='deleteJoke.proc.php?id=" . htmlspecialchars($data['id']) . "'>Eliminar</a> |
+            <a href='patchJoke.php?id=" . htmlspecialchars($data['id']) . "'>Actualizar</a> |
+            <a href='putJoke.php?id=" . htmlspecialchars($data['id']) . "'>Modificacio Complerta</a>
+          </td>";
 
-        echo "</tr>";
-    }
+    echo "</tr>";
 
     echo "</table>";
 } else {
-    echo "Error al obtener los datos de la API.";
+    echo "Error al obtener los datos de la API o no hay datos disponibles.";
 }
 ?>
