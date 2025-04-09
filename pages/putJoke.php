@@ -9,12 +9,10 @@
 <body>
 
 <h2>Canviar Joke</h2>
-<form action="putJoke.proc.php" method="POST">
-    <p><input type="text" id="id" name="id" placeholder="ID"></p>    
-    <p><input type="text" id="title" name="title" size="20" maxlength="30" required placeholder="Titulo" /></p>
-    <p><input type="number" id="price" name="price" required placeholder="Price" /></p>
-    <p><input type="text" id="image" name="image" required placeholder="Image" /></p>
-    <p><input type="text" id="category" name="category" required placeholder="category" /></p>
+<form action="putJoke.proc.php" method="POST">   
+    <p><input type="text" id="author" name="author" size="20" maxlength="30" required placeholder="Author" /></p>
+    <p><input type="text" id="joke" name="joke" required placeholder="Joke" /></p>
+    <p><input type="text" id="source" name="source" required placeholder="Source" /></p>
     <p><input type="submit" value="Enviar"/></p>
 </form>
 

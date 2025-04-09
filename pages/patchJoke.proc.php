@@ -4,8 +4,8 @@ $id = $_GET['id'];
 $url = "https://api101.up.railway.app/jokes/$id";  
 
 $data = array(
-    'title' => $_REQUEST['title'],
-    'price' => $_REQUEST['price']
+    'author' => $_REQUEST['author'],
+    'joke' => $_REQUEST['joke']
 );
 
 $ch = curl_init($url);
