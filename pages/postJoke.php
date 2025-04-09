@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h2>Canviar Joke</h2>
+<h2>Crear Joke</h2>
 <form action="postJoke.proc.php" method="POST">
     <p><input type="text" id="title" name="title" size="20" maxlength="30" required placeholder="Titulo" /></p>
     <p><input type="number" id="price" name="price" required placeholder="Price" /></p>

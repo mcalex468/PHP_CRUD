@@ -1,5 +1,5 @@
 <?php
-$url = "https://api101.up.railway.app/jokes";  
+$url = "https://api101.up.railway.app/joke";  
 
 $data = array(
     'author' => $_REQUEST['author'],  

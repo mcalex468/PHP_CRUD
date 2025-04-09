@@ -8,9 +8,6 @@
 </head>
 <body>
     
-</body>
-</html>
-
 <?php
 $url = "https://api101.up.railway.app/joke";  
 
@@ -43,7 +40,14 @@ if ($data) {
     echo "</tr>";
 
     echo "</table>";
+    // Aquí envolvemos el enlace en un div y le damos estilo
+    echo "<div style='text-align: center; margin-top: 20px;'>
+            <a href='postJoke.php'>Crear</a>
+          </div>";
 } else {
     echo "Error al obtener los datos de la API o no hay datos disponibles.";
 }
 ?>
+
+</body>
+</html>
